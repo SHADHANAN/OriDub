@@ -1,0 +1,40 @@
+# VoiceFusion AI – Python requirements
+# =====================================
+
+# Web server
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+aiofiles>=23.0.0        # async non-blocking file I/O for upload handling
+
+# Core ML (with CUDA 12.4 support – requires driver >= 550, CVE-2025-32434 fix)
+# GTX 1650 (compute 7.5) + driver 596.36 fully support cu124.
+--extra-index-url https://download.pytorch.org/whl/cu124
+torch>=2.6.0
+torchvision>=0.21.0
+torchaudio>=2.6.0
+
+# ASR
+openai-whisper>=20231117
+
+# Translation & ASR (Pin transformers for XTTS compatibility)
+transformers==4.38.2
+sentencepiece>=0.1.99
+protobuf>=3.20.0
+sacremoses>=0.0.53
+
+# Audio processing
+librosa>=0.10.0
+soundfile>=0.12.0
+pydub>=0.25.1
+
+# TTS
+coqui-tts>=0.27.5
+torchcodec>=0.16.0
+
+# Video processing
+moviepy>=1.0.3
+
+# Utilities
+numpy>=1.24.0
+scipy>=1.11.0
